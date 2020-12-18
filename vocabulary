@@ -1,0 +1,36 @@
+a_or_b = input("a or b:")
+
+
+def a(a):
+    readtext = a.split()
+    for i in readtext:
+        if len(i) < 3:
+            readtext.pop(readtext.index(i))
+        i.strip()
+        if not i[len(i) - 1].isalnum():
+            readtext[readtext.index(i)] = i[:len(i) - 1]
+    readtext.sort(key=str.lower)
+    for i in readtext:
+        print(i.capitalize())
+
+
+def b(a):
+    readtext = a.casefold()
+
+    alpha = {"a": 0, "b": 0, "c": 0, "d": 0, "e": 0, "f": 0, "g": 0, "h": 0, "i": 0, "j": 0, "k": 0, "l": 0, "m": 0,
+             "n": 0, "o": 0, "p": 0, "q": 0, "r": 0,
+             "s": 0, "t": 0, "u": 0, "v": 0, "w": 0, "x": 0, "y": 0, "z": 0}
+    for i in range(len(a)):
+        if not readtext[i].isalpha():
+            continue
+        alpha[readtext[i]] += 1
+    for x, y in alpha.items():
+        print(x, "=", y)
+
+
+if a_or_b == "a":
+    a(input("Enter text:"))
+elif a_or_b == "b":
+    b(input("Enter text:"))
+else:
+    print("entered it wrong")
